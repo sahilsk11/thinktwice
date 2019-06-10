@@ -10,6 +10,13 @@
     margin-left: 30px;
 }
 
+.header-img {
+    position: absolute;
+    width: 35px;
+    left: 90px;
+    top: 20px;
+}
+
 .title-container {
     position: relative;
     width: 95%;
@@ -65,8 +72,8 @@
     border: 0.5px solid rgb(150, 150, 150);
     height: 27px;
     font-size: 17px;
-    text-align: center;
     outline: none;
+    padding-left: 4px;
 }
 
 .btn {
@@ -106,4 +113,13 @@
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
+}
+
+.link {
+    color: #0A61FE;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
 }

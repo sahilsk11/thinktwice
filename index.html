@@ -1,18 +1,20 @@
 <html>
-    <head>
-        <title>guilt.rip</title>
 
-        <link href="css/organize.css" rel="stylesheet">
+<head>
+	<title>guilt.rip</title>
 
-        <script>
-            function submit() {
+    <link href="css/organize.css" rel="stylesheet">
+    <link href="images/favicon.png" rel="icon">
+  
+
+	<script>
+		function submit() {
                 var item = document.getElementById("search-bar").value;
                 var price = document.getElementById("cost-bar").value;
                 if (validateInput(item, price)) {
                     window.location.href="guilt.html?product=" + item + "&price=" + price;
                 }
             }
-
             function validateInput(item, price) {
                 if (item != "" && price != "") {
                     return true;
@@ -21,28 +23,31 @@
                     return false;
                 }
             }
-        </script>
-    </head>
+	</script>
+</head>
 
-    <body class="backdrop">
+<body class="backdrop">
 
-        <div class="header">
-            <h3>guilt.rip</h3>
+	<div class="header">
+        <h3>guilt.rip</h3>
+        <img src="images/favicon.png" class="header-img">
+	</div>
+	<div class="title-container">
+		<h1 class="title">What do you want to waste money on today?</h1>
+		<input id="search-bar">
         </div>
-        <div class="title-container">
-            <h1 class="title">What do you want to waste money on today?</h1>
-            <input id="search-bar">
-        </div>
 
-        <div class="cost-container">
+        <div class="cost-container input-group">
             <h3 class="cost-title">How much does it cost?</h3>
-            <input id="cost-bar">
+            <input id="cost-bar" value="$">
         </div>
+
+        
 
         <button class="btn" onclick="submit()">guilt me</button>
 
         <div class="footer">
-            <p class="footer-subtitle"><a href="#">why tho</a></p>
+            <p class="footer-subtitle"><a class="link" href="#">why tho</a></p>
         </div>
     </body>
 </html>
