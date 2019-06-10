@@ -81,14 +81,15 @@
     display: block;
     margin: 0px auto;
     margin-top: 30px;
-    width: 100px;
+    width: 140px;
     height: 40px;
     background-color: black;
     color: white;
     outline: none;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 5px;
     border: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .btn:hover {
@@ -106,13 +107,12 @@
     bottom: 0;
     margin-left: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .footer-subtitle {
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 16px;
 }
 
 .link {
@@ -122,4 +122,30 @@
 
 .link:hover {
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 800px) {
+    .title {
+        font-size: 25px;
+    }
+    .cost-title {
+        font-size: 18px;
+    }
+    .btn {
+        font-size: 17px;
+        width: 100px;
+    }
+    .header {
+        margin-left: 15px;
+        font-size: 17px;
+    }
+    .header-img {
+        width: 25px;
+        left: 70px;
+        top: 20px;
+    }
+    .footer {
+        margin-left: 15px;
+        font-size: 14px;
+    }
 }
