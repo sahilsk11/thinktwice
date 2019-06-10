@@ -3,9 +3,32 @@
         <title>guilt.rip</title>
 
         <link href="css/organize.css" rel="stylesheet">
+
+        <script>
+            function submit() {
+                var item = document.getElementById("search-bar").value;
+                var price = document.getElementById("cost-bar").value;
+                if (validateInput(item, price)) {
+                    window.location.href="guilt.html?product=" + item + "&price=" + price;
+                }
+            }
+
+            function validateInput(item, price) {
+                if (item != "" && price != "") {
+                    return true;
+                } else {
+                    alert("Invalid fields. Please try again.")
+                    return false;
+                }
+            }
+        </script>
     </head>
 
     <body class="backdrop">
+
+        <div class="header">
+            <h3>guilt.rip</h3>
+        </div>
         <div class="title-container">
             <h1 class="title">What do you want to waste money on today?</h1>
             <input id="search-bar">
@@ -16,6 +39,10 @@
             <input id="cost-bar">
         </div>
 
-        <button class="btn">guilt me</button>
+        <button class="btn" onclick="submit()">guilt me</button>
+
+        <div class="footer">
+            <p class="footer-subtitle"><a href="#">why tho</a></p>
+        </div>
     </body>
 </html>
