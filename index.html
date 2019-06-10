@@ -1,40 +1,42 @@
+<!DOCTYPE html>
 <html>
 
-<head>
-	<title>guilt.rip</title>
+    <head>
+        <title>guilt.rip</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="css/organize.css" rel="stylesheet">
-    <link href="images/favicon.png" rel="icon">
-  
+        <link href="css/organize.css" rel="stylesheet">
+        <link href="images/favicon.png" rel="icon">
+    
 
-	<script>
-		function submit() {
-                var item = document.getElementById("search-bar").value;
-                var price = document.getElementById("cost-bar").value;
-                if (validateInput(item, price)) {
-                    window.location.href="guilt.html?product=" + item + "&price=" + price;
+        <script>
+            function submit() {
+                    var item = document.getElementById("search-bar").value;
+                    var price = document.getElementById("cost-bar").value;
+                    if (validateInput(item, price)) {
+                        window.location.href="guilt.html?product=" + item + "&price=" + price;
+                    }
                 }
-            }
-            function validateInput(item, price) {
-                if (item != "" && price != "") {
-                    return true;
-                } else {
-                    alert("Invalid fields. Please try again.")
-                    return false;
+                function validateInput(item, price) {
+                    if (item != "" && price != "") {
+                        return true;
+                    } else {
+                        alert("Invalid fields. Please try again.")
+                        return false;
+                    }
                 }
-            }
-	</script>
-</head>
+        </script>
+    </head>
 
-<body class="backdrop">
+    <body class="backdrop">
 
-	<div class="header">
-        <h3>guilt.rip</h3>
-        <img src="images/favicon.png" class="header-img">
-	</div>
-	<div class="title-container">
-		<h1 class="title">What do you want to waste money on today?</h1>
-		<input id="search-bar">
+        <div class="header">
+            <h3>guilt.rip</h3>
+            <img src="images/favicon.png" class="header-img">
+        </div>
+        <div class="title-container">
+            <h1 class="title">What do you want to waste money on today?</h1>
+            <input id="search-bar">
         </div>
 
         <div class="cost-container input-group">
