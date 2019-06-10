@@ -2,19 +2,25 @@
     /*not sure if we want to add something as background element*/
 }
 
+.title-font {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .header {
     position: fixed;
     top: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 20px;
+}
+
+.header-title {
     font-size: 20px;
-    margin-left: 30px;
 }
 
 .header-img {
     position: absolute;
-    width: 35px;
+    width: 30px;
     left: 90px;
-    top: 17px;
+    top: 18px;
 }
 
 .title-container {
@@ -25,12 +31,11 @@
     margin-top: 20%;
     padding-bottom: 20px;
     padding-top: 20px;
-    max-width: 700px;
+    max-width: 900px;
 }
 
 .title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     text-align: center;
     margin-bottom: 5%;
 }
@@ -56,8 +61,7 @@
 }
 
 .cost-title {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 400;
+    font-weight: 500;
     margin: 0px;
     border: 0px;
     display: inline-block;
@@ -89,7 +93,6 @@
     font-size: 20px;
     border-radius: 5px;
     border: none;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .btn:hover {
@@ -106,13 +109,11 @@
     position: fixed;
     bottom: 0;
     margin-left: 30px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 16px;
 }
 
 .footer-subtitle {
     margin-top: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .link {
@@ -137,12 +138,14 @@
     }
     .header {
         margin-left: 15px;
+    }
+    .header-title {
         font-size: 17px;
     }
     .header-img {
         width: 25px;
-        left: 70px;
-        top: 20px;
+        left: 75px;
+        top: 15px;
     }
     .footer {
         margin-left: 15px;
