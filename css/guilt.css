@@ -31,10 +31,6 @@ a {
     max-width: 90%;
 }
 
-@media only screen and (max-width: 500px) {
-	
-}
-
 .img-container {
 	position: relative;
 }
@@ -48,6 +44,7 @@ a {
 }
 
 .text-container {
+    position: relative;
 	width: 80%;
 	display: block;
     margin: 0px auto;
