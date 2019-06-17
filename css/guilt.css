@@ -75,7 +75,7 @@ a {
 	width: 200px;
 	position: relative;
 	box-shadow: 4px 5px grey;
-	transition-duration: 0.3s;
+	transition-duration: 0.2s;
 	border-radius: 4px;
 	cursor: pointer;
 	font-weight: 400;
@@ -105,7 +105,7 @@ a {
 .share-wrapper {
     display: block;
     margin: 0px auto;
-    width: 104px;
+    width: 105px;
 }
 
 .social {

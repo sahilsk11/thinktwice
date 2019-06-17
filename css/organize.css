@@ -95,10 +95,18 @@
     font-size: 20px;
     border-radius: 5px;
     border: none;
+    box-shadow: 5px 5px grey;
+    transition-duration: 0.2s;
 }
 
 .btn:hover {
     background-color: #1e824c;
+}
+
+.btn:hover {
+	box-shadow: 1px 1px grey;
+	transform: translate(2px, 2px);
+	transition-duration: 0.3s;
 }
 
 @media only screen and (min-width: 976px) {

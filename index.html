@@ -13,24 +13,34 @@
 
         <script>
             function submit() {
-                    var item = document.getElementById("search-bar").value;
-                    var price = document.getElementById("cost-bar").value;
-                    if (validateInput(item, price)) {
-                        window.location.href="guilt.html?product=" + item + "&price=" + price;
-                    }
+                var item = document.getElementById("search-bar").value;
+                var price = document.getElementById("cost-bar").value;
+                if (validateInput(item, price)) {
+                    window.location.href="guilt.html?product=" + item + "&price=" + price;
                 }
-                function validateInput(item, price) {
-                    if (item != "" && price != "" && price != "$") {
-                        return true;
-                    } else {
-                        alert("Invalid fields. Please try again.")
-                        return false;
-                    }
+            }
+            function validateInput(item, price) {
+                if (item != "" && price != "" && price != "$") {
+                    return true;
+                } else {
+                    alert("Invalid fields. Please try again.")
+                    return false;
                 }
+            }
+            function colorIn() {
+                document.getElementById("body").style.backgroundColor = randomColor(230);
+                document.getElementById("search-bar").style.backgroundColor = randomColor(170);
+                document.getElementById("cost-bar").style.backgroundColor = randomColor(190);
+            }
+
+            function randomColor(hue) {
+                var range = 255 - hue;
+                return "rgb(" + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + ")";
+            }
         </script>
     </head>
 
-    <body class="backdrop">
+    <body class="backdrop" id="body" onload="colorIn()">
 
         <div class="header">
             <h3 class="title-font header-title">guilt.rip</h3>
