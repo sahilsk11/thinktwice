@@ -31,6 +31,16 @@ a {
     max-width: 90%;
 }
 
+@media only screen and (max-height: 670px) {
+    .title-container {
+        margin-top: 0px;
+        padding-top: 0px;
+    }
+    .card {
+        height: 480px;
+    }
+}
+
 .img-container {
 	position: relative;
 }
