@@ -32,7 +32,7 @@
             },
             "africanSchool": {
                 "value": 0,
-                "src": "images/school.png",
+                "src": "https://www.yerepouni-news.com/wp-content/uploads/2018/02/syria-16fghj.jpg",
                 "string": "build VAR WORD in war-stricken environments",
                 "singularWord":"school",
                 "pluralWord": "schools",
@@ -154,6 +154,7 @@
         }
 
         function calculateMoney() {
+            document.getElementById("element-image").src = "";
             console.log("calculating");
             var e = keys[index];
             var value = price / elements[e]["cost"];
@@ -241,7 +242,7 @@
 
     <div class="card" id="card">
         <div class="img-container">
-            <img id="element-image" src='https://image.flaticon.com/icons/svg/167/167707.svg' class="item-img">
+            <img id="element-image" class="item-img" alt="loading...">
         </div>
         <div class="text-container">
             <p class="description title-font">
