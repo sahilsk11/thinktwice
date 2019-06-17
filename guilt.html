@@ -29,7 +29,7 @@
             },
             "africanSchool": {
                 "value": 0,
-                "src": "https://image.flaticon.com/icons/svg/167/167707.svg",
+                "src": "images/school.png",
                 "string": "build VAR schools in war-stricken environments",
                 "sourceName": "The Illinois Review",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
@@ -47,7 +47,7 @@
             },
             "tesla": {
                 "value": 0,
-                "src": "https://www.tesla.com/content/dam/tesla-site/sx-redesign/img/model3-proto/specs/compare-model3--right.png",
+                "src": "images/model3.png",
                 "string": "buy VAR Tesla Model 3's",
                 "sourceName": "Tesla",
                 "sourceUrl": "http://www.tesla.com/model3",
@@ -170,6 +170,8 @@
 
 
         function addItems() {
+            document.getElementById("card").style.backgroundColor = randomColor(150);
+            document.getElementById("body").style.backgroundColor = randomColor(220);
             keys = Object.keys(elements);
             key = keys[index];
             var e = elements[key];
@@ -182,20 +184,25 @@
             }
         }
 
+        function randomColor(hue) {
+            var range = 255 - hue;
+            return "rgb(" + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + ")";
+        }
+
         function formatDesription(e) {
             return e["string"].replace("VAR", e["value"]);
         }
     </script>
 </head>
 
-<body onload="parseUrl()">
+<body onload="parseUrl()" id="body">
     <div class="title-container section">
         <h1 class="title title-font">Instead of buying <span id="product"></span> for <span id="price"></span>, you
             could:
         </h1>
     </div>
 
-    <div class="card">
+    <div class="card" id="card">
         <div class="img-container">
             <img id="element-image" src='https://image.flaticon.com/icons/svg/167/167707.svg' class="item-img">
         </div>
@@ -206,14 +213,16 @@
         </div>
 
         <div class="share-container">
-            <button class="social facebook-btn title-font">
-                <!--<img src="images/facebook.png" class="icon">-->
-                SHARE
-            </button>
-            <button class="social twitter-btn title-font">
-                <!--<img src="images/twitter.png" class="icon">-->
-                TWEET
-            </button>
+            <div class="share-wrapper">
+                <button class="social facebook-btn title-font">
+                    <!--<img src="images/facebook.png" class="icon">-->
+                    SHARE
+                </button>
+                <button class="social twitter-btn title-font">
+                    <!--<img src="images/twitter.png" class="icon">-->
+                    TWEET
+                </button>
+            </div>
         </div>
     </div>
 

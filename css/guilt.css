@@ -10,9 +10,8 @@ a {
 	margin-top: 20px;
 	max-width: 500px;
 	padding-bottom: 0px;
-	margin-bottom: 0px;
-	border-bottom: 0px;
-	font-weight: 300;
+	margin-bottom: 10px;
+    font-weight: 300;
 }
 
 .title {
@@ -29,7 +28,7 @@ a {
 	margin: 0px auto;
 	border-radius: 7px;
 	position: relative;
-	max-width: 90%;
+    max-width: 90%;
 }
 
 @media only screen and (max-width: 500px) {
@@ -41,17 +40,20 @@ a {
 }
 
 .item-img {
-	width: 50%;
+	width: 70%;
 	display: block;
 	margin: 0px auto;
-	padding-top: 20px;
+    padding-top: 20px;
 }
 
 .text-container {
 	width: 80%;
 	display: block;
-	margin: 0px auto;
-	padding-top: 40px;
+    margin: 0px auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    background-color: white;
+    border: 1px solid black;
 }
 
 .description {
@@ -60,7 +62,7 @@ a {
 }
 
 .btn {
-	font-size: 15px;
+	font-size: 18px;
 	width: 200px;
 	position: relative;
 	box-shadow: 4px 5px grey;
@@ -85,30 +87,36 @@ a {
 }
 
 .share-container {
-	position: relative;
-	width: 80%;
+	position: absolute;
 	display: block;
-	margin: 0px auto;
-	padding-top: 35px;
+    bottom: 0px;
+    width: 100%;
+}
+
+.share-wrapper {
+    display: block;
+    margin: 0px auto;
+    width: 104px;
 }
 
 .social {
 	text-align: center;
-	display: block;
+	display: inline;
 	margin: 0px auto;
-	width: 50%;
-	height: 50px;
+	width: 50px;
+	height: 30px;
 	margin-bottom: 10px;
 	border: none;
 	color: white;
-	font-size: 15px;
+	font-size: 10px;
 	position: relative;
 	outline: none;
 	cursor: pointer;
 	transition-duration: 0.1s;
 	border-radius: 2px;
 	font-weight: 700;
-	letter-spacing: 0px;
+    letter-spacing: 0px;
+    border: 1px solid black;
 }
 
 .facebook-btn {
