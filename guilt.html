@@ -15,6 +15,7 @@
 
     <script>
 
+        var index = 0;
         var price;
         var product;
         var elements = {
@@ -28,8 +29,8 @@
             },
             "africanSchool": {
                 "value": 0,
-                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
-                "string": "feed VAR children in war-stricken environments for one day",
+                "src": "https://image.flaticon.com/icons/svg/167/167707.svg",
+                "string": "build VAR schools in war-stricken environments",
                 "sourceName": "The Illinois Review",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
@@ -37,28 +38,28 @@
             },
             "laptopStand": {
                 "value": 0,
-                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
-                "string": "feed VAR children in war-stricken environments for one day",
-                "sourceName": "World Food Programme",
+                "src": "https://amp.businessinsider.com/images/5cf8133011e2051fb46d510d-1334-1000.jpg",
+                "string": "buy VAR Apple Mac stands",
+                "sourceName": "Apple",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
                 "cost": 1000
             },
             "tesla": {
                 "value": 0,
-                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
-                "string": "feed VAR children in war-stricken environments for one day",
+                "src": "https://www.tesla.com/content/dam/tesla-site/sx-redesign/img/model3-proto/specs/compare-model3--right.png",
+                "string": "buy VAR Tesla Model 3's",
                 "sourceName": "Tesla",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "http://www.tesla.com/model3",
                 "threshold": 0.01,
                 "cost": 38000
             },
             "disneyTickets": {
                 "value": 0,
-                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
-                "string": "feed VAR children in war-stricken environments for one day",
+                "src": "https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/2/1280/720/75/dam/wdpro-assets/home/hpr/walt-disney-world-six-parks-uk-video-loop.jpg",
+                "string": "buy VAR tickets to Disneyland",
                 "sourceName": "Disney",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "http://disney.com",
                 "threshold": 1,
                 "cost": 150
             },
@@ -111,7 +112,7 @@
 
         function parseUrl() {
             var params = window.location.search;
-            product = params.substring(9, params.indexOf("&"));
+            product = decodeURI(params.substring(9, params.indexOf("&")));
             price = params.substring(params.indexOf("$"));
 
             addProductElements(product, price);
@@ -136,7 +137,7 @@
                 var value = price / elements[e]["cost"];
                 if (value > elements[e]["threshold"]) {
                     if (value < 1) {
-                        value = Math.round(value * 100) / 100 + "%";
+                        value = Math.round(value * 100) + "%";
                     } else {
                         value = Math.round(value);
                     }
@@ -168,18 +169,21 @@
         }
 
 
-        function addItems(payload) {
-            keys = Object.keys(payload);
-            for (var i = 0; i < keys.length; i++) {
-                key = keys[i];
-                var e = payload[key];
-                try {
-                    document.getElementById(key).style.display = "block";
-                    document.getElementById(key + "Value").innerHTML = e["value"];
-                } catch (error) {
-                    console.log(error);
-                }
+        function addItems() {
+            keys = Object.keys(elements);
+            key = keys[index];
+            var e = elements[key];
+            document.getElementById("description").style.display = "block";
+            var description = formatDesription(e);
+            document.getElementById("description").innerHTML = description;
+            document.getElementById("element-image").src = e["src"];
+            if (++index >= keys.length) {
+                index = 0;
             }
+        }
+
+        function formatDesription(e) {
+            return e["string"].replace("VAR", e["value"]);
         }
     </script>
 </head>
@@ -193,13 +197,11 @@
 
     <div class="card">
         <div class="img-container">
-            <img src='https://image.flaticon.com/icons/svg/167/167707.svg' class="item-img">
+            <img id="element-image" src='https://image.flaticon.com/icons/svg/167/167707.svg' class="item-img">
         </div>
         <div class="text-container">
             <p class="description title-font">
-                <span style="display:none" id="africanSchool">fund the construction of <span
-                        id="africanSchoolValue"></span> of
-                    a school in rural Africa</span>
+                <span style="display:none" id="description"></span>
             </p>
         </div>
 
@@ -216,7 +218,7 @@
     </div>
 
     <div class="buttons">
-        <button class="btn title-font">
+        <button class="btn title-font" onclick="addItems();">
             <span class="btn-emoji">🤑</span> anotha one <span class="btn-emoji btn-emoji-right">🤑</span></button>
     </div>
 
