@@ -134,6 +134,8 @@
                 "cost": 20
             }
         }
+        var keys = Object.keys(elements).sort(() => Math.random() - 0.5);
+        console.log("sorted");
 
         function parseUrl() {
             var params = window.location.search;
@@ -143,7 +145,6 @@
             addProductElements(product, price);
 
             price = price.replace("$", "");
-
             calculateMoney();
         }
 
@@ -153,8 +154,7 @@
         }
 
         function calculateMoney() {
-            console.log(index);
-            var keys = Object.keys(elements);
+            console.log("calculating");
             var e = keys[index];
             var value = price / elements[e]["cost"];
             if (value > elements[e]["threshold"]) {
@@ -200,15 +200,13 @@
             */
         }
 
-
         function addItems() {
             document.getElementById("card").style.backgroundColor = randomColor(150);
             document.getElementById("body").style.backgroundColor = randomColor(220);
-            keys = Object.keys(elements);
             key = keys[index];
             var e = elements[key];
             document.getElementById("description").style.display = "block";
-            var description = formatDesription(e);
+            var description = formatDescription(e);
             document.getElementById("description").innerHTML = description;
             document.getElementById("element-image").src = e["src"];
             if (++index >= keys.length) {
@@ -221,8 +219,9 @@
             return "rgb(" + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + ")";
         }
 
-        function formatDesription(e) {
+        function formatDescription(e) {
             var str;
+            console.log(e);
             if (e["value"] < 1) {
                 str = e["percentString"];
             } else {
