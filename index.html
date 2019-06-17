@@ -4,6 +4,7 @@
         <title>guilt.rip</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
         <link href="css/organize.css" rel="stylesheet">
@@ -19,7 +20,7 @@
                     }
                 }
                 function validateInput(item, price) {
-                    if (item != "" && price != "") {
+                    if (item != "" && price != "" && price != "$") {
                         return true;
                     } else {
                         alert("Invalid fields. Please try again.")

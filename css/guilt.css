@@ -1,0 +1,141 @@
+a {
+	text-decoration: none;
+}
+
+.title-font {
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.title-container {
+	margin-top: 20px;
+	max-width: 500px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	font-weight: 300;
+}
+
+.title {
+	text-align: center;
+	font-weight: 300;
+}
+
+.card {
+	width: 400px;
+	height: 500px;
+	box-shadow: 5px 5px grey;
+	border: 2px solid black;
+	display: block;
+	margin: 0px auto;
+	border-radius: 7px;
+	position: relative;
+	max-width: 90%;
+}
+
+@media only screen and (max-width: 500px) {
+	
+}
+
+.img-container {
+	position: relative;
+}
+
+.item-img {
+	width: 50%;
+	display: block;
+	margin: 0px auto;
+	padding-top: 20px;
+}
+
+.text-container {
+	width: 80%;
+	display: block;
+	margin: 0px auto;
+	padding-top: 40px;
+}
+
+.description {
+	font-size: 20px;
+	text-align: center;
+}
+
+.btn {
+	font-size: 15px;
+	width: 200px;
+	position: relative;
+	box-shadow: 4px 5px grey;
+	transition-duration: 0.3s;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: 400;
+	margin-bottom: 20px;
+}
+
+.btn-emoji {
+	position: absolute;
+	font-size: 20px;
+	left: 20px;
+	bottom: 4px;
+	transition-duration: 0.1s;
+}
+
+.btn-emoji-right {
+	right: 20px;
+	left: auto;
+}
+
+.share-container {
+	position: relative;
+	width: 80%;
+	display: block;
+	margin: 0px auto;
+	padding-top: 35px;
+}
+
+.social {
+	text-align: center;
+	display: block;
+	margin: 0px auto;
+	width: 50%;
+	height: 50px;
+	margin-bottom: 10px;
+	border: none;
+	color: white;
+	font-size: 15px;
+	position: relative;
+	outline: none;
+	cursor: pointer;
+	transition-duration: 0.1s;
+	border-radius: 2px;
+	font-weight: 700;
+	letter-spacing: 0px;
+}
+
+.facebook-btn {
+	background-color: #3b5998;
+}
+
+.facebook-btn:hover {
+	background-color: #2f4679;
+}
+
+.twitter-btn {
+	background-color: #38A1F3;
+}
+
+.twitter-btn:hover {
+	background-color: rgb(51, 146, 218);
+}
+
+.icon {
+	position: absolute;
+	height: 25px;
+	left: 20px;
+	top: 13px;
+}
+
+.btn:hover {
+	box-shadow: 1px 1px grey;
+	transform: translate(2px, 2px);
+	transition-duration: 0.3s;
+}

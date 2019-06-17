@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title id="title">guilt.rip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap" rel="stylesheet">
+
+
+
+    <link href="css/organize.css" rel="stylesheet">
+    <link href="css/guilt.css" rel="stylesheet">
+    <link href="images/favicon.png" rel="icon">
+
+    <script>
+
+        var price;
+        var product;
+        var elements = {
+            "childrenFed": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme", "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 1, 
+                "cost": 0.5
+            },
+            "africanSchool": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "The Illinois Review",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 0.01,
+                "cost": 12000
+            },
+            "laptopStand": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 0.01,
+                "cost": 1000
+            },
+            "tesla": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "Tesla",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 0.01,
+                "cost": 38000
+            },
+            "disneyTickets": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "Disney",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 1,
+                "cost": 150
+            },
+            "girlsToSchool": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "rescue.org",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 1,
+                "cost": 58
+            },
+            "remoteClinic": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 0.01,
+                "cost": 500
+            },
+            "womensTraining": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 1,
+                "cost": 200
+            },
+            "cleanWater": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 0.01,
+                "cost": 110
+            },
+            "poundsOfTrash": {
+                "value": 0,
+                "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
+                "string": "feed VAR children in war-stricken environments for one day",
+                "sourceName": "World Food Programme",
+                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "threshold": 1,
+                "cost": 20
+            }
+        }
+
+        function parseUrl() {
+            var params = window.location.search;
+            product = params.substring(9, params.indexOf("&"));
+            price = params.substring(params.indexOf("$"));
+
+            addProductElements(product, price);
+
+            price = price.replace("$", "");
+
+            console.log(product);
+            console.log(price);
+            calculateMoney(price);
+        }
+
+        function addProductElements(product, price) {
+            document.getElementById("product").innerHTML = product;
+            document.getElementById("price").innerHTML = price;
+        }
+
+        function calculateMoney(price) {
+            var keys = Object.keys(elements);
+            for (var i = 0; i < keys.length; i++) {
+                var e = keys[i];
+                console.log(e);
+                var value = price / elements[e]["cost"];
+                if (value > elements[e]["threshold"]) {
+                    if (value < 1) {
+                        value = Math.round(value * 100) / 100 + "%";
+                    } else {
+                        value = Math.round(value);
+                    }
+                    elements[e]["value"] = value;
+                }
+            }
+            addItems(elements);
+            /*
+            elements["childrenFed"]["value"] = price * 2; //World Food Programme
+            elements["africanSchool"]["value"] = price / 12000; //Illinois Review
+            elements["laptopStand"] = price / 1000;
+            elements["tesla"]["value"] = price / 38000;
+            elements["disneyTickets"]["value"] = price / 150;
+            elements["girlToSchool"]["value"] = price / 58; //rescue.org
+            elements["remoteClinic"] = price / 500; //rescue.org
+            elements["rebuildClassroom"] = price / 240; //rescue.org
+            elements["womensTraining"] = price / 200;
+            elements["cleanWater"] = price / 110;
+            elements["poundsOfTrash"] = price / 20 //4ocean.com
+            elements["farmAnimals"] = price / 20;
+            elements["rabbits"] = price / 60;
+            elements["land"] = price / 80;
+            elements["beef"] = price / 100;
+            
+            var obj = {"childrenFed":childrenFed, "africanSchool":africanSchool, "laptopStand":laptopStand, "tesla":tesla, "disneyTickets":disneyTickets, "girlsToSchool":girlToSchool, "remoteClinic":remoteClinic, "rebuildClassroom":rebuildClassroom, "womensTraining":womensTraining, "cleanWater":cleanWater, "poundsOfTrash":poundsOfTrash};
+            console.log(obj);
+            return obj;
+            */
+        }
+
+
+        function addItems(payload) {
+            keys = Object.keys(payload);
+            for (var i = 0; i < keys.length; i++) {
+                key = keys[i];
+                var e = payload[key];
+                try {
+                    document.getElementById(key).style.display = "block";
+                    document.getElementById(key + "Value").innerHTML = e["value"];
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body onload="parseUrl()">
+    <div class="title-container section">
+        <h1 class="title title-font">Instead of buying <span id="product"></span> for <span id="price"></span>, you
+            could:
+        </h1>
+    </div>
+
+    <div class="card">
+        <div class="img-container">
+            <img src='https://image.flaticon.com/icons/svg/167/167707.svg' class="item-img">
+        </div>
+        <div class="text-container">
+            <p class="description title-font">
+                <span style="display:none" id="africanSchool">fund the construction of <span
+                        id="africanSchoolValue"></span> of
+                    a school in rural Africa</span>
+            </p>
+        </div>
+
+        <div class="share-container">
+            <button class="social facebook-btn title-font">
+                <!--<img src="images/facebook.png" class="icon">-->
+                SHARE
+            </button>
+            <button class="social twitter-btn title-font">
+                <!--<img src="images/twitter.png" class="icon">-->
+                TWEET
+            </button>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="btn title-font">
+            <span class="btn-emoji">🤑</span> anotha one <span class="btn-emoji btn-emoji-right">🤑</span></button>
+    </div>
+
+    <!-- <div class="section" id="section1">
+
+            
+            <span style="display:none" id="childrenFed"><span id="childrenFedValue"></span> children fed for a day (source: World Food Programme)</span>
+            <span style="display:none" id="poundsOfTrash"><span id="poundsOfTrashValue"></span> pounds of ocean trash (source: 4Ocean)</span>
+            <span style="display:none" id="laptopStand"><span id="laptopStandValue"></span> of a Mac laptop stand (source: Apple)</span>
+            <span style="display:none" id="tesla"><span id="teslaValue"></span> of an electric Tesla Model 3 (source: Tesla)</span>
+            <span style="display:none" id="remoteClinic"><span id="remoteClinicValue"></span> towards mobile health clinics in rural areas (Source: rescue.org)</span>
+            <span style="display:none" id="rebuildClassroom"><span id="rebuildClassroomValue"></span> towards rebuilding war-stricken schools in 3rd world countries (source: rescue.org)</span>
+            <span style="display:none" id="womensTraining"><span id="womensTrainingValue"></span> towards helping one woman learn self-sustaning business and entrepreneurship. (source: rescue.org)</span>
+            <span style="display:none" id="cleanWater"><span id="cleanWaterValue"></span> towards clean water systems (source: rescue.org)</span>
+        </div>-->
+</body>
+
+</html>

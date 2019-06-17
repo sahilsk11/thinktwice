@@ -4,6 +4,8 @@
 
 .title-font {
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: -1px;
+    word-spacing: 2px;
 }
 
 .header {
@@ -96,7 +98,7 @@
 }
 
 .btn:hover {
-    background-color: rgb(200, 0, 0);
+    background-color: #1e824c;
 }
 
 @media only screen and (min-width: 976px) {
