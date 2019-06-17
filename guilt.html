@@ -31,6 +31,7 @@
                 "value": 0,
                 "src": "images/school.png",
                 "string": "build VAR schools in war-stricken environments",
+                "percentString": "fund VAR of rebuilding a destroyed school",
                 "sourceName": "The Illinois Review",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
@@ -40,6 +41,7 @@
                 "value": 0,
                 "src": "https://amp.businessinsider.com/images/5cf8133011e2051fb46d510d-1334-1000.jpg",
                 "string": "buy VAR Apple Mac stands",
+                "percentString": "afford VAR of an Apple Mac stand",
                 "sourceName": "Apple",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
@@ -49,6 +51,7 @@
                 "value": 0,
                 "src": "images/model3.png",
                 "string": "buy VAR Tesla Model 3's",
+                "percentString": "buy VAR of a Tesla Model 3",
                 "sourceName": "Tesla",
                 "sourceUrl": "http://www.tesla.com/model3",
                 "threshold": 0.01,
@@ -58,6 +61,7 @@
                 "value": 0,
                 "src": "https://cdn1.parksmedia.wdprapps.disney.com/resize/mwImage/2/1280/720/75/dam/wdpro-assets/home/hpr/walt-disney-world-six-parks-uk-video-loop.jpg",
                 "string": "buy VAR tickets to Disneyland",
+                "percentString": "buy VAR of a ticket to Disneyland",
                 "sourceName": "Disney",
                 "sourceUrl": "http://disney.com",
                 "threshold": 1,
@@ -76,6 +80,7 @@
                 "value": 0,
                 "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
                 "string": "feed VAR children in war-stricken environments for one day",
+                "percentString": "feed VAR children in war-stricken environments for one day",
                 "sourceName": "World Food Programme",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
@@ -94,6 +99,7 @@
                 "value": 0,
                 "src": "https://sharethemeal.org/assets/img/map-india-57eef8d6cb.jpg",
                 "string": "feed VAR children in war-stricken environments for one day",
+                "percentString": "feed VAR children in war-stricken environments for one day",
                 "sourceName": "World Food Programme",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
@@ -119,9 +125,7 @@
 
             price = price.replace("$", "");
 
-            console.log(product);
-            console.log(price);
-            calculateMoney(price);
+            calculateMoney();
         }
 
         function addProductElements(product, price) {
@@ -129,22 +133,26 @@
             document.getElementById("price").innerHTML = price;
         }
 
-        function calculateMoney(price) {
+        function calculateMoney() {
+            console.log(index);
             var keys = Object.keys(elements);
-            for (var i = 0; i < keys.length; i++) {
-                var e = keys[i];
-                console.log(e);
-                var value = price / elements[e]["cost"];
-                if (value > elements[e]["threshold"]) {
-                    if (value < 1) {
-                        value = Math.round(value * 100) + "%";
-                    } else {
-                        value = Math.round(value);
-                    }
-                    elements[e]["value"] = value;
+            var e = keys[index];
+            var value = price / elements[e]["cost"];
+            if (value > elements[e]["threshold"]) {
+                if (value < 1) {
+                    value = Math.round(value * 100) + "%";
+                    elements[e]["string"] = elements[e]["percentString"];
+                } else {
+                    value = Math.round(value);
                 }
+                elements[e]["value"] = value;
+                addItems(elements);
+            } else {
+                if (++index >= keys.length) {
+                    index = 0;
+                }
+                calculateMoney();
             }
-            addItems(elements);
             /*
             elements["childrenFed"]["value"] = price * 2; //World Food Programme
             elements["africanSchool"]["value"] = price / 12000; //Illinois Review
@@ -190,7 +198,13 @@
         }
 
         function formatDesription(e) {
-            return e["string"].replace("VAR", e["value"]);
+            var str;
+            if (e["value"] < 1) {
+                str = e["percentString"];
+            } else {
+                str = e["string"];
+            }
+            return str.replace("VAR", e["value"]);
         }
     </script>
 </head>
@@ -227,7 +241,7 @@
     </div>
 
     <div class="buttons">
-        <button class="btn title-font" onclick="addItems();">
+        <button class="btn title-font" onclick="calculateMoney();">
             <span class="btn-emoji">🤑</span> anotha one <span class="btn-emoji btn-emoji-right">🤑</span></button>
     </div>
 
