@@ -135,7 +135,6 @@
             }
         }
         var keys = Object.keys(elements).sort(() => Math.random() - 0.5);
-        console.log("sorted");
 
         function parseUrl() {
             var params = window.location.search;
@@ -153,9 +152,9 @@
             document.getElementById("price").innerHTML = price;
         }
 
-        function calculateMoney() {
+        function calculateMoney(backward) {
+            console.log(index);
             document.getElementById("element-image").src = "";
-            console.log("calculating");
             var e = keys[index];
             var value = price / elements[e]["cost"];
             if (value > elements[e]["threshold"]) {
@@ -173,38 +172,36 @@
                 elements[e]["value"] = value;
                 addItems(elements);
             } else {
-                if (++index >= keys.length) {
-                    index = 0;
+                if (backward != null) {
+                    goBack("one");
+                } else {
+                    if (++index >= keys.length) {
+                        index = 0;
+                    }
+                    calculateMoney();
                 }
-                calculateMoney();
+                
             }
-            /*
-            elements["childrenFed"]["value"] = price * 2; //World Food Programme
-            elements["africanSchool"]["value"] = price / 12000; //Illinois Review
-            elements["laptopStand"] = price / 1000;
-            elements["tesla"]["value"] = price / 38000;
-            elements["disneyTickets"]["value"] = price / 150;
-            elements["girlToSchool"]["value"] = price / 58; //rescue.org
-            elements["remoteClinic"] = price / 500; //rescue.org
-            elements["rebuildClassroom"] = price / 240; //rescue.org
-            elements["womensTraining"] = price / 200;
-            elements["cleanWater"] = price / 110;
-            elements["poundsOfTrash"] = price / 20 //4ocean.com
-            elements["farmAnimals"] = price / 20;
-            elements["rabbits"] = price / 60;
-            elements["land"] = price / 80;
-            elements["beef"] = price / 100;
-            
-            var obj = {"childrenFed":childrenFed, "africanSchool":africanSchool, "laptopStand":laptopStand, "tesla":tesla, "disneyTickets":disneyTickets, "girlsToSchool":girlToSchool, "remoteClinic":remoteClinic, "rebuildClassroom":rebuildClassroom, "womensTraining":womensTraining, "cleanWater":cleanWater, "poundsOfTrash":poundsOfTrash};
-            console.log(obj);
-            return obj;
-            */
+        }
+
+        function goBack(param) {
+            if (param == null ){
+                index -= 2;
+            } else {
+                index -= 1;
+            }
+            if (index == -2) {
+                index = keys.length - 2;
+            } else if (index == -1) {
+                index = keys.length - 1;
+            }
+            calculateMoney(true);
         }
 
         function addItems() {
             document.getElementById("card").style.backgroundColor = randomColor(150);
             document.getElementById("body").style.backgroundColor = randomColor(220);
-            document.getElementById("text-header").style.backgroundColor = randomColor(200);
+            //document.getElementById("text-header").style.backgroundColor = randomColor(200);
             key = keys[index];
             var e = elements[key];
             document.getElementById("description").style.display = "block";
@@ -235,9 +232,6 @@
 </head>
 
 <body onload="parseUrl()" id="body">
-    <div class="header">
-        <a href="index.html"><h3 class="title-font header-title">back to guilt.rip</h3></a>
-    </div>
     <div class="title-container section" id="text-header">
         <h1 class="title title-font">Instead of buying <span id="product"></span> for <span id="price"></span>, you
             could:
@@ -254,6 +248,11 @@
             </p>
         </div>
 
+        <div class="link-container title-font">
+            <a>Learn More</a>
+            <a class="left-link">Donate Now</a>
+        </div>
+
         <div class="share-container">
             <div class="share-wrapper">
                 <button class="social facebook-btn title-font">
@@ -268,9 +267,18 @@
         </div>
     </div>
 
+    <img src="images/left.png" class="next left" onclick="goBack()">
+    <img src="images/right.png" class="next" onclick="calculateMoney()">
+
     <div class="buttons">
         <button class="btn title-font" onclick="calculateMoney();">
-            <span class="btn-emoji">🤑</span> anotha one <span class="btn-emoji btn-emoji-right">🤑</span></button>
+            <span class="btn-emoji"></span> next <span class="btn-emoji btn-emoji-right"></span></button>
+    </div>
+
+    <div class="guilt-footer">
+        <a href="index.html">
+            <h3 class="title-font">back to guilt.rip</h3>
+        </a>
     </div>
 
     <!-- <div class="section" id="section1">
