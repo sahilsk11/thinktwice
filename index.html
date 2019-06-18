@@ -1,68 +1,82 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>guilt.rip</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<head>
+    <title>guilt.rip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
-        <link href="css/organize.css" rel="stylesheet">
-        <link href="images/favicon.png" rel="icon">
-    
+    <link href="css/organize.css" rel="stylesheet">
+    <link href="images/favicon.png" rel="icon">
 
-        <script>
-            function submit() {
-                var item = document.getElementById("search-bar").value;
-                var price = document.getElementById("cost-bar").value;
-                if (validateInput(item, price)) {
-                    if (price.substring(0, 1) != "$") {
-                        price = "$" + price;
-                    }
-                    window.location.href="guilt.html?product=" + item + "&price=" + price;
+
+    <script>
+        function submit() {
+            var item = document.getElementById("search-bar").value;
+            var price = document.getElementById("cost-bar").value;
+            if (validateInput(item, price)) {
+                if (price.substring(0, 1) != "$") {
+                    price = "$" + price;
                 }
+                window.location.href = "guilt.html?product=" + item + "&price=" + price;
             }
-            function validateInput(item, price) {
-                if (item != "" && price != "" && price != "$") {
-                    return true;
-                } else {
-                    alert("Invalid fields. Please try again.")
-                    return false;
+        }
+        function validateInput(item, price) {
+            if (item != "" && price != "" && price != "$") {
+                return true;
+            } else {
+                alert("Invalid fields. Please try again.")
+                return false;
+            }
+        }
+        function colorIn() {
+            document.getElementById("body").style.backgroundColor = randomColor(210);
+            document.getElementById("search-bar").style.backgroundColor = randomColor(170);
+            document.getElementById("cost-bar").style.backgroundColor = randomColor(190);
+            addListener("cost-bar");
+            addListener("search-bar");
+        }
+
+        function randomColor(hue) {
+            var range = 255 - hue;
+            return "rgb(" + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + ")";
+        }
+
+        function addListener(id) {
+            var input = document.getElementById(id);
+            input.addEventListener("keyup", function (event) {
+                if (event.keyCode === 13) {
+                    submit();
                 }
-            }
-            function colorIn() {
-                document.getElementById("body").style.backgroundColor = randomColor(210);
-                document.getElementById("search-bar").style.backgroundColor = randomColor(170);
-                document.getElementById("cost-bar").style.backgroundColor = randomColor(190);
-            }
+            });
+        }
+    </script>
+</head>
 
-            function randomColor(hue) {
-                var range = 255 - hue;
-                return "rgb(" + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + ")";
-            }
-        </script>
-    </head>
+<body class="backdrop" id="body" onload="colorIn()">
 
-    <body class="backdrop" id="body" onload="colorIn()">
+    <div class="header">
+        <h3 class="title-font header-title">guilt.rip</h3>
+        <img src="images/favicon.png" class="header-img">
+    </div>
+    <div class="title-container">
+        <h1 class="title title-font">What do you want to waste money on today?</h1>
+        <input id="search-bar" placeholder="Enter materialistic junk here ..." class="title-font" autocomplete="off"
+            spellcheck="false">
+    </div>
 
-        <div class="header">
-            <h3 class="title-font header-title">guilt.rip</h3>
-            <img src="images/favicon.png" class="header-img">
-        </div>
-        <div class="title-container">
-            <h1 class="title title-font">What do you want to waste money on today?</h1>
-            <input id="search-bar" placeholder="Enter materialistic junk here ..." class="title-font" autocomplete="off" spellcheck="false">
-        </div>
+    <div class="cost-container input-group">
+        <h3 class="cost-title title-font">How much does it cost?</h3>
+        <input id="cost-bar" value="$" class="title-font" autocomplete="off">
+    </div>
 
-        <div class="cost-container input-group">
-            <h3 class="cost-title title-font">How much does it cost?</h3>
-            <input id="cost-bar" value="$" class="title-font" autocomplete="off">
-        </div>
+    <button class="btn title-font" onclick="submit()">guilt me</button>
 
-        <button class="btn title-font" onclick="submit()">guilt me</button>
+    <div class="footer">
+        <p class="footer-subtitle title-font"><a class="link" href="#">why</a></p>
+    </div>
+</body>
 
-        <div class="footer">
-            <p class="footer-subtitle title-font"><a class="link" href="#">why</a></p>
-        </div>
-    </body>
 </html>

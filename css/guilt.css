@@ -35,6 +35,12 @@ a {
     max-width: 90%;
 }
 
+.header {
+    position: fixed;
+    top: auto;
+    bottom: -5px;
+}
+
 @media only screen and (max-height: 670px) {
     .title-container {
         margin-top: 0px;
@@ -159,4 +165,12 @@ a {
 	box-shadow: 1px 1px grey;
 	transform: translate(2px, 2px);
 	transition-duration: 0.3s;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: rgb(63, 63, 224);
 }

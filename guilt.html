@@ -27,14 +27,14 @@
                 "pluralWord": "children",
                 "sourceName": "World Food Programme",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
-                "threshold": 1, 
+                "threshold": 1,
                 "cost": 0.5
             },
             "africanSchool": {
                 "value": 0,
                 "src": "images/room.jpg",
                 "string": "build VAR WORD in war-stricken environments",
-                "singularWord":"school",
+                "singularWord": "school",
                 "pluralWord": "schools",
                 "percentString": "fund VAR of rebuilding a destroyed school",
                 "sourceName": "The Illinois Review",
@@ -204,6 +204,7 @@
         function addItems() {
             document.getElementById("card").style.backgroundColor = randomColor(150);
             document.getElementById("body").style.backgroundColor = randomColor(220);
+            document.getElementById("text-header").style.backgroundColor = randomColor(200);
             key = keys[index];
             var e = elements[key];
             document.getElementById("description").style.display = "block";
@@ -217,7 +218,7 @@
 
         function randomColor(hue) {
             var range = 255 - hue;
-            return "rgb(" + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + "," + (Math.random()*range+hue) + ")";
+            return "rgb(" + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + ")";
         }
 
         function formatDescription(e) {
@@ -234,7 +235,10 @@
 </head>
 
 <body onload="parseUrl()" id="body">
-    <div class="title-container section">
+    <div class="header">
+        <a href="index.html"><h3 class="title-font header-title">back to guilt.rip</h3></a>
+    </div>
+    <div class="title-container section" id="text-header">
         <h1 class="title title-font">Instead of buying <span id="product"></span> for <span id="price"></span>, you
             could:
         </h1>
