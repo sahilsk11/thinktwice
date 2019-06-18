@@ -80,6 +80,7 @@ a {
 	cursor: pointer;
 	font-weight: 400;
 	margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .btn-emoji {
@@ -125,7 +126,6 @@ a {
 	border-radius: 2px;
 	font-weight: 700;
     letter-spacing: 0px;
-    border: 1px solid black;
 }
 
 .facebook-btn {

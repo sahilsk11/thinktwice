@@ -56,7 +56,7 @@
             },
             "tesla": {
                 "value": 0,
-                "src": "images/model3.png",
+                "src": "images/model3.jpg",
                 "string": "buy VAR Tesla WORD",
                 "singularWord": "Model 3",
                 "pluralWord": "Model 3's",
@@ -163,7 +163,7 @@
                     value = Math.round(value * 100) + "%";
                     elements[e]["string"] = elements[e]["percentString"];
                 } else {
-                    value = Math.round(value);
+                    value = Math.round(value - 0.3);
                     if (value == 1) {
                         elements[e]["string"] = elements[e]["string"].replace("WORD", elements[e]["singularWord"]);
                     } else {

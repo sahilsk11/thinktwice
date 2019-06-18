@@ -16,6 +16,9 @@
                 var item = document.getElementById("search-bar").value;
                 var price = document.getElementById("cost-bar").value;
                 if (validateInput(item, price)) {
+                    if (price.substring(0, 1) != "$") {
+                        price = "$" + price;
+                    }
                     window.location.href="guilt.html?product=" + item + "&price=" + price;
                 }
             }
@@ -28,7 +31,7 @@
                 }
             }
             function colorIn() {
-                document.getElementById("body").style.backgroundColor = randomColor(230);
+                document.getElementById("body").style.backgroundColor = randomColor(210);
                 document.getElementById("search-bar").style.backgroundColor = randomColor(170);
                 document.getElementById("cost-bar").style.backgroundColor = randomColor(190);
             }
@@ -48,12 +51,12 @@
         </div>
         <div class="title-container">
             <h1 class="title title-font">What do you want to waste money on today?</h1>
-            <input id="search-bar" class="title-font">
+            <input id="search-bar" placeholder="Enter materialistic junk here ..." class="title-font" autocomplete="off" spellcheck="false">
         </div>
 
         <div class="cost-container input-group">
             <h3 class="cost-title title-font">How much does it cost?</h3>
-            <input id="cost-bar" value="$" class="title-font">
+            <input id="cost-bar" value="$" class="title-font" autocomplete="off">
         </div>
 
         <button class="btn title-font" onclick="submit()">guilt me</button>
