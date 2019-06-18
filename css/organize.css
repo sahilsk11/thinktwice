@@ -90,18 +90,19 @@
     margin-top: 10px;
     width: 140px;
     height: 40px;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
     outline: none;
     font-size: 20px;
     border-radius: 5px;
     border: none;
     box-shadow: 5px 5px grey;
     transition-duration: 0.2s;
+    border: 2px solid black;
 }
 
 .btn:hover {
-    background-color: #1e824c;
+    background-color: #2bb86c;
 }
 
 .btn:hover {
