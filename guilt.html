@@ -29,7 +29,7 @@
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 1,
                 "cost": 0.5,
-                "donate":true
+                "donate": true
             },
             "africanSchool": {
                 "value": 0,
@@ -42,7 +42,7 @@
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
                 "cost": 12000,
-                "donate":true
+                "donate": true
             },
             "laptopStand": {
                 "value": 0,
@@ -55,7 +55,7 @@
                 "sourceUrl": "https://www.apple.com/pro-display-xdr/",
                 "threshold": 0.01,
                 "cost": 1000,
-                "donate":false
+                "donate": false
             },
             "tesla": {
                 "value": 0,
@@ -68,7 +68,7 @@
                 "sourceUrl": "http://www.tesla.com/model3",
                 "threshold": 0.01,
                 "cost": 38000,
-                "donate":false
+                "donate": false
             },
             "disneyTickets": {
                 "value": 0,
@@ -81,7 +81,7 @@
                 "sourceUrl": "https://disneyland.disney.go.com/tickets/",
                 "threshold": 1,
                 "cost": 150,
-                "donate":false
+                "donate": false
             },
             "girlsToSchool": {
                 "value": 0,
@@ -91,7 +91,7 @@
                 "sourceUrl": "https://gifts.rescue.org/product/education/year-school-two-girls",
                 "threshold": 1,
                 "cost": 58,
-                "donate":true
+                "donate": true
             },
             "remoteClinic": {
                 "value": 0,
@@ -104,7 +104,7 @@
                 "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/mobile-medical-clinics",
                 "threshold": 0.01,
                 "cost": 500,
-                "donate":true
+                "donate": true
             },
             "womensTraining": {
                 "value": 0,
@@ -116,7 +116,7 @@
                 "sourceUrl": "https://gifts.rescue.org/product/rebuilding/womens-small-business-training",
                 "threshold": 1,
                 "cost": 200,
-                "donate":true
+                "donate": true
             },
             "cleanWater": {
                 "value": 0,
@@ -129,7 +129,7 @@
                 "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/clean-water",
                 "threshold": 0.01,
                 "cost": 110,
-                "donate":true
+                "donate": true
             },
             "poundsOfTrash": {
                 "value": 0,
@@ -141,7 +141,7 @@
                 "sourceUrl": "https://4ocean.com/",
                 "threshold": 1,
                 "cost": 20,
-                "donate":true
+                "donate": true
             }
         }
         var keys = Object.keys(elements).sort(() => Math.random() - 0.5);
@@ -151,15 +151,34 @@
             product = decodeURI(params.substring(9, params.indexOf("&")));
             price = params.substring(params.indexOf("$"));
 
-            addProductElements(product, price);
+            if (checkCost()) {
+                addProductElements(product, price);
 
-            price = price.replace("$", "");
-            calculateMoney();
+                price = price.replace("$", "");
+                calculateMoney();
+            }
         }
 
         function addProductElements(product, price) {
             document.getElementById("product").innerHTML = product;
             document.getElementById("price").innerHTML = price;
+        }
+
+        function checkCost() {
+            var found = false;
+            for (var i = 0; i < keys.length; i++) {
+                var e = keys[i];
+                var value = price / elements[e]["cost"];
+                if (value > elements[e]["threshold"]) {
+                    found = true;
+                }
+            }
+            if (!found) {
+                alert("We couldn't find anything in that price range. Try raising the price and try again");
+                window.location.href = "index.html";
+                return false
+            }
+            return true;
         }
 
         function calculateMoney(backward) {
@@ -196,12 +215,12 @@
                     }
                     calculateMoney();
                 }
-                
+
             }
         }
 
         function goBack(param) {
-            if (param == null ){
+            if (param == null) {
                 index -= 2;
             } else {
                 index -= 1;
@@ -260,7 +279,7 @@
         </div>
         <div class="text-container">
             <p class="description title-font">
-                <span style="display:none" id="description"></span>
+                <span style="display:none" id="description">Hm, looks like we couldn't find anything.</span>
             </p>
         </div>
 
@@ -272,11 +291,11 @@
             <div class="share-wrapper">
                 <button class="social facebook-btn title-font">
                     <!--<img src="images/facebook.png" class="icon">-->
-                    <!--SHARE
+        <!--SHARE
                 </button>
                 <button class="social twitter-btn title-font">
                     <!--<img src="images/twitter.png" class="icon">-->
-                    <!--TWEET
+        <!--TWEET
                 </button>
             </div>
         </div>-->
