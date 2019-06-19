@@ -28,7 +28,8 @@
                 "sourceName": "World Food Programme",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 1,
-                "cost": 0.5
+                "cost": 0.5,
+                "donate":true
             },
             "africanSchool": {
                 "value": 0,
@@ -40,7 +41,8 @@
                 "sourceName": "The Illinois Review",
                 "sourceUrl": "https://sharethemeal.org/en/index.html",
                 "threshold": 0.01,
-                "cost": 12000
+                "cost": 12000,
+                "donate":true
             },
             "laptopStand": {
                 "value": 0,
@@ -52,7 +54,8 @@
                 "sourceName": "Apple",
                 "sourceUrl": "https://www.apple.com/pro-display-xdr/",
                 "threshold": 0.01,
-                "cost": 1000
+                "cost": 1000,
+                "donate":false
             },
             "tesla": {
                 "value": 0,
@@ -64,7 +67,8 @@
                 "sourceName": "Tesla",
                 "sourceUrl": "http://www.tesla.com/model3",
                 "threshold": 0.01,
-                "cost": 38000
+                "cost": 38000,
+                "donate":false
             },
             "disneyTickets": {
                 "value": 0,
@@ -74,18 +78,20 @@
                 "pluralWord": "tickets",
                 "percentString": "buy VAR of a ticket to Disneyland",
                 "sourceName": "Disney",
-                "sourceUrl": "http://disney.com",
+                "sourceUrl": "https://disneyland.disney.go.com/tickets/",
                 "threshold": 1,
-                "cost": 150
+                "cost": 150,
+                "donate":false
             },
             "girlsToSchool": {
                 "value": 0,
                 "src": "images/school.jpg",
                 "string": "send VAR young girls in poverty to school for one year",
                 "sourceName": "rescue.org",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "https://gifts.rescue.org/product/education/year-school-two-girls",
                 "threshold": 1,
-                "cost": 58
+                "cost": 58,
+                "donate":true
             },
             "remoteClinic": {
                 "value": 0,
@@ -95,9 +101,10 @@
                 "pluralWord": "clinics",
                 "percentString": "fund VAR of a health clinic in an impoverished community",
                 "sourceName": "World Food Programme",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/mobile-medical-clinics",
                 "threshold": 0.01,
-                "cost": 500
+                "cost": 500,
+                "donate":true
             },
             "womensTraining": {
                 "value": 0,
@@ -106,9 +113,10 @@
                 "singularWord": "woman in a rural community",
                 "pluralWord": "women in rural communities",
                 "sourceName": "World Food Programme",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "https://gifts.rescue.org/product/rebuilding/womens-small-business-training",
                 "threshold": 1,
-                "cost": 200
+                "cost": 200,
+                "donate":true
             },
             "cleanWater": {
                 "value": 0,
@@ -118,9 +126,10 @@
                 "pluralWord": "systems in remote areas",
                 "percentString": "fund VAR of a clean water system in a remote area",
                 "sourceName": "World Food Programme",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/clean-water",
                 "threshold": 0.01,
-                "cost": 110
+                "cost": 110,
+                "donate":true
             },
             "poundsOfTrash": {
                 "value": 0,
@@ -129,9 +138,10 @@
                 "singularWord": "pound",
                 "pluralWord": "pounds",
                 "sourceName": "World Food Programme",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
+                "sourceUrl": "https://4ocean.com/",
                 "threshold": 1,
-                "cost": 20
+                "cost": 20,
+                "donate":true
             }
         }
         var keys = Object.keys(elements).sort(() => Math.random() - 0.5);
@@ -167,6 +177,12 @@
                         elements[e]["string"] = elements[e]["string"].replace("WORD", elements[e]["singularWord"]);
                     } else {
                         elements[e]["string"] = elements[e]["string"].replace("WORD", elements[e]["pluralWord"]);
+                    }
+                    document.getElementById("learn").href = elements[e]["sourceUrl"]
+                    if (elements[e]["donate"]) {
+                        document.getElementById("learn").innerHTML = "Learn More + Donate";
+                    } else {
+                        document.getElementById("learn").innerHTML = "Learn More";
                     }
                 }
                 elements[e]["value"] = value;
@@ -249,8 +265,7 @@
         </div>
 
         <div class="link-container title-font">
-            <a target="_blank">Learn More</a>
-            <a target="_blank" class="left-link">Donate Now</a>
+            <a id="learn" class="card-link" target="_blank">Learn More + Donate</a>
         </div>
 
         <!--<div class="share-container">

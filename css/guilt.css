@@ -191,6 +191,8 @@ a:hover {
     padding: 30px;
     padding-top: 20px;
     font-size: 14px;
+    display: block;
+    margin: 0px auto;
 }
 
 .next {
@@ -224,4 +226,9 @@ a:hover {
     .next {
         display: none;
     }
+}
+
+.card-link {
+    display: block;
+    text-align: center;
 }
