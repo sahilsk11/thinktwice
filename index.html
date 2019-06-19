@@ -25,19 +25,25 @@
         }
         function validateInput(item, price) {
             price = price.replace("$", "");
+            price = price.replace(",", "");
+
             console.log(price > 0);
             try {
                 if (price > 0) {
+                    if (item.length > 20 || price.length > 9) {
+                        alert("Enter less words/smaller number and try again");
+                        return false;
+                    }
                     if (item != "" && price != "" && price != "$") {
                         return true;
                     }
                 }
-            } catch(err) {
-                
+            } catch (err) {
+                console.log(err);
             }
             alert("Invalid fields. Please try again.")
             return false;
-            
+
         }
         function colorIn() {
             document.getElementById("body").style.backgroundColor = randomColor(210);
