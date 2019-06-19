@@ -21,6 +21,13 @@
     top: 6px;
 }
 
+.title-image {
+    width: 200px;
+    margin-bottom: 0px;
+    display: block;
+    margin: 0px auto;
+}
+
 .title-container {
     position: relative;
     width: 95%;
@@ -38,7 +45,7 @@
     font-weight: 300;
     text-align: center;
     margin-bottom: 30px;
-    padding-top: 5%;
+    padding-top: 0px;
     /*background-color: white;
     border: 2px solid black;
     border-radius: 5px;
