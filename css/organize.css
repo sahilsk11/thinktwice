@@ -1,5 +1,5 @@
 .title-font {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     letter-spacing: -1px;
     word-spacing: 2px;
 }
@@ -35,14 +35,16 @@
 .title {
     display: block;
     margin: 0px auto;
-    font-weight: 500;
+    font-weight: 300;
     text-align: center;
-    margin-bottom: 5%;
+    margin-bottom: 30px;
+    padding-top: 5%;
     /*background-color: white;
     border: 2px solid black;
     border-radius: 5px;
     width: 780px;
     padding: 10px;*/
+    font-size: 25px;
 }
 
 #search-bar {
@@ -67,7 +69,7 @@
 }
 
 .cost-title {
-    font-weight: 500;
+    font-weight: 400;
     margin: 0px;
     border: 0px;
     display: inline-block;

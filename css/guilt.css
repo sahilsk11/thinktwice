@@ -21,6 +21,7 @@ a {
 .title {
 	text-align: center;
 	font-weight: 300;
+    font-size: 22px;
 }
 
 .card {
@@ -168,7 +169,7 @@ a {
 .btn:hover {
 	box-shadow: 1px 1px grey;
 	transform: translate(2px, 2px);
-	transition-duration: 0.3s;
+	transition-duration: 0.2s;
 }
 
 a {
@@ -199,7 +200,7 @@ a:hover {
     right: calc(50% - 300px);
     top: 350px;
     border-radius: 100%;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
 }
 
 .left {
@@ -209,7 +210,7 @@ a:hover {
 
 .next:hover {
     width: 55px;
-    background-color: #2bb86c;
+    background-color: #2cdb7e;
     right: calc(50% - 304px);
     top: 348px;
 }
