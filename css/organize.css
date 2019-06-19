@@ -6,23 +6,23 @@
 
 .header {
     position: fixed;
-    top: 14px;
-    margin-left: 20px;
+    top: 0px;
+    margin-left: 10px;
 }
 
 .header-title {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .header-img {
     position: absolute;
-    width: 50px;
-    left: 130px;
-    top: 6px;
+    width: 26px;
+    left: 110px;
+    top: 14px;
 }
 
 .title-image {
-    width: 130px;
+    width: 110px;
     padding-bottom: 30px;
     display: block;
     margin: 0px auto;
@@ -35,7 +35,7 @@
     display: block;
     margin-top: 20%;
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
     max-width: 900px;
 }
 
@@ -149,7 +149,18 @@
     text-decoration: underline;
 }
 
+.hidden-link {
+    text-decoration: none;
+}
+
+.hidden-link:visited {
+    color: black;
+}
+
 @media only screen and (max-width: 800px) {
+    .header {
+        display: none;
+    }
     .title {
         font-size: 25px;
     }
