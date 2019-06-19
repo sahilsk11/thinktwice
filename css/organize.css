@@ -6,7 +6,7 @@
 
 .header {
     position: fixed;
-    top: 0;
+    top: 14px;
     margin-left: 20px;
 }
 
@@ -16,9 +16,9 @@
 
 .header-img {
     position: absolute;
-    width: 30px;
-    left: 80px;
-    top: 18px;
+    width: 50px;
+    left: 130px;
+    top: 6px;
 }
 
 .title-container {
