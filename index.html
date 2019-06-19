@@ -24,12 +24,20 @@
             }
         }
         function validateInput(item, price) {
-            if (item != "" && price != "" && price != "$") {
-                return true;
-            } else {
-                alert("Invalid fields. Please try again.")
-                return false;
+            price = price.replace("$", "");
+            console.log(price > 0);
+            try {
+                if (price > 0) {
+                    if (item != "" && price != "" && price != "$") {
+                        return true;
+                    }
+                }
+            } catch(err) {
+                
             }
+            alert("Invalid fields. Please try again.")
+            return false;
+            
         }
         function colorIn() {
             document.getElementById("body").style.backgroundColor = randomColor(210);

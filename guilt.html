@@ -151,10 +151,9 @@
             product = decodeURI(params.substring(9, params.indexOf("&")));
             price = params.substring(params.indexOf("$"));
 
+            price = price.replace("$", "");
             if (checkCost()) {
                 addProductElements(product, price);
-
-                price = price.replace("$", "");
                 calculateMoney();
             }
         }
@@ -268,7 +267,7 @@
 
 <body onload="parseUrl()" id="body">
     <div class="title-container section" id="text-header">
-        <h1 class="title title-font">Instead of buying <span id="product"></span> for <span id="price"></span>, you
+        <h1 class="title title-font">Instead of buying <span id="product"></span> for $<span id="price"></span>, you
             could:
         </h1>
     </div>
