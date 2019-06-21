@@ -6,6 +6,7 @@
     <title id="title">thinktwice.me</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142397401-1"></script>
@@ -21,139 +22,14 @@
     <link href="css/guilt.css" rel="stylesheet">
     <link href="images/icon.png" rel="icon">
 
+    <script src="data.json" type="text/javascript"></script>
     <script>
 
         var index = 0;
+        var pos = 0;
         var price;
         var product;
-        var elements = {
-            "childrenFed": {
-                "value": 0,
-                "src": "images/feed.jpg",
-                "string": "feed VAR WORD in war-stricken environments for one day",
-                "singularWord": "child",
-                "pluralWord": "children",
-                "sourceName": "World Food Programme",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
-                "threshold": 1,
-                "cost": 0.5,
-                "donate": true
-            },
-            "africanSchool": {
-                "value": 0,
-                "src": "images/room.jpg",
-                "string": "build VAR WORD in war-stricken environments",
-                "singularWord": "school",
-                "pluralWord": "schools",
-                "percentString": "fund VAR of rebuilding a destroyed school",
-                "sourceName": "The Illinois Review",
-                "sourceUrl": "https://sharethemeal.org/en/index.html",
-                "threshold": 0.01,
-                "cost": 12000,
-                "donate": true
-            },
-            "laptopStand": {
-                "value": 0,
-                "src": "images/mac.jpg",
-                "string": "buy VAR Apple Mac WORD",
-                "singularWord": "stand",
-                "pluralWord": "stands",
-                "percentString": "afford VAR of an Apple Mac stand",
-                "sourceName": "Apple",
-                "sourceUrl": "https://www.apple.com/pro-display-xdr/",
-                "threshold": 0.01,
-                "cost": 1000,
-                "donate": false
-            },
-            "tesla": {
-                "value": 0,
-                "src": "images/model3.jpg",
-                "string": "buy VAR Tesla WORD",
-                "singularWord": "Model 3",
-                "pluralWord": "Model 3's",
-                "percentString": "buy VAR of a Tesla Model 3",
-                "sourceName": "Tesla",
-                "sourceUrl": "http://www.tesla.com/model3",
-                "threshold": 0.01,
-                "cost": 38000,
-                "donate": false
-            },
-            "disneyTickets": {
-                "value": 0,
-                "src": "images/disney.jpg",
-                "string": "buy VAR WORD to Disneyland",
-                "singularWord": "ticket",
-                "pluralWord": "tickets",
-                "percentString": "buy VAR of a ticket to Disneyland",
-                "sourceName": "Disney",
-                "sourceUrl": "https://disneyland.disney.go.com/tickets/",
-                "threshold": 1,
-                "cost": 150,
-                "donate": false
-            },
-            "girlsToSchool": {
-                "value": 0,
-                "src": "images/school.jpg",
-                "string": "send VAR young WORD in poverty to school for one year",
-                "singularWord": "girl",
-                "pluralWord": "girls",
-                "sourceName": "rescue.org",
-                "sourceUrl": "https://gifts.rescue.org/product/education/year-school-two-girls",
-                "threshold": 1,
-                "cost": 58,
-                "donate": true
-            },
-            "remoteClinic": {
-                "value": 0,
-                "src": "images/clinic.jpg",
-                "string": "fund VAR health WORD in impoverished communities",
-                "singularWord": "clinic",
-                "pluralWord": "clinics",
-                "percentString": "fund VAR of a health clinic in an impoverished community",
-                "sourceName": "World Food Programme",
-                "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/mobile-medical-clinics",
-                "threshold": 0.01,
-                "cost": 500,
-                "donate": true
-            },
-            "womensTraining": {
-                "value": 0,
-                "src": "images/business.jpg",
-                "string": "train VAR WORD about running sustaining business",
-                "singularWord": "woman in a rural community",
-                "pluralWord": "women in rural communities",
-                "sourceName": "World Food Programme",
-                "sourceUrl": "https://gifts.rescue.org/product/rebuilding/womens-small-business-training",
-                "threshold": 1,
-                "cost": 200,
-                "donate": true
-            },
-            "cleanWater": {
-                "value": 0,
-                "src": "images/water.jpg",
-                "string": "build VAR clean water WORD",
-                "singularWord": "system in a remote area",
-                "pluralWord": "systems in remote areas",
-                "percentString": "fund VAR of a clean water system in a remote area",
-                "sourceName": "World Food Programme",
-                "sourceUrl": "https://gifts.rescue.org/product/emergency-relief/clean-water",
-                "threshold": 0.01,
-                "cost": 110,
-                "donate": true
-            },
-            "poundsOfTrash": {
-                "value": 0,
-                "src": "images/trash.jpeg",
-                "string": "remove VAR WORD of trash from the ocean",
-                "singularWord": "pound",
-                "pluralWord": "pounds",
-                "sourceName": "World Food Programme",
-                "sourceUrl": "https://4ocean.com/",
-                "threshold": 1,
-                "cost": 20,
-                "donate": true
-            }
-        }
+        var elements = data;
         var keys = Object.keys(elements).sort(() => Math.random() - 0.5);
 
         function parseUrl() {
@@ -195,11 +71,10 @@
         }
 
         function calculateMoney(backward) {
-            console.log(index);
-            document.getElementById("element-image").src = "";
             var e = keys[index];
             var value = price / elements[e]["cost"];
-            if (value > elements[e]["threshold"]) {
+            if (value >= elements[e]["threshold"]) {
+                addCard();
                 if (value < 1) {
                     value = Math.round(value * 100) + "%";
                     elements[e]["string"] = elements[e]["percentString"];
@@ -210,13 +85,13 @@
                     } else {
                         elements[e]["string"] = elements[e]["string"].replace("WORD", elements[e]["pluralWord"]);
                     }
-                    document.getElementById("learn").href = elements[e]["sourceUrl"]
-                    if (elements[e]["donate"]) {
-                        document.getElementById("learn").innerHTML = "Learn More + Donate";
-                    } else {
-                        document.getElementById("learn").innerHTML = "Learn More";
-                    }
                 }
+                if (elements[e]["donate"]) {
+                    document.getElementById("learn").innerHTML = "Learn More + Donate";
+                } else {
+                    document.getElementById("learn").innerHTML = "Learn More";
+                }
+                document.getElementById("learn").href = elements[e]["sourceUrl"]
                 elements[e]["value"] = value;
                 addItems(elements);
             } else {
@@ -247,11 +122,13 @@
         }
 
         function addItems() {
-            document.getElementById("card").style.backgroundColor = randomColor(150);
+            console.log(index);
+            document.getElementById("card" + index).style.backgroundColor = randomColor(150);
             document.getElementById("body").style.backgroundColor = randomColor(220);
             //document.getElementById("text-header").style.backgroundColor = randomColor(200);
             key = keys[index];
             var e = elements[key];
+            console.log(e["singularWord"]);
             document.getElementById("description").style.display = "block";
             var description = formatDescription(e);
             document.getElementById("description").innerHTML = description;
@@ -261,6 +138,30 @@
             }
         }
 
+        function addCard() {
+            var animation = "rollIn";
+            var tag = document.createElement("div");
+            tag.innerHTML =
+                '<div class="card animated '+animation+'" id="card' + (index) + '"> \
+            <div class="img-container"> \
+                <img id="element-image" class="item-img"> \
+            </div> \
+            <div class="text-container"> \
+                <p class="description title-font"> \
+                    <span style="display:none" id="description">Hm, looks like we couldn\'t find anything.</span> \
+                </p> \
+            </div> \
+            <div class="link-container title-font"> \
+                <a id="learn" class="card-link" target="_blank">Learn More + Donate</a> \
+            </div>  \
+        </div>';
+            document.getElementById("wrapper").prepend(tag);
+
+            document.getElementById("card" + index).style.zIndex = pos + 1;
+            pos++;
+            console.log("added");
+        }
+
         function randomColor(hue) {
             var range = 255 - hue;
             return "rgb(" + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + "," + (Math.random() * range + hue) + ")";
@@ -268,7 +169,6 @@
 
         function formatDescription(e) {
             var str;
-            console.log(e);
             if (e["value"] < 1) {
                 str = e["percentString"];
             } else {
@@ -293,30 +193,19 @@
         </h1>
     </div>
 
-    <div class="card" id="card">
-        <div class="img-container">
-            <img id="element-image" class="item-img">
-        </div>
-        <div class="text-container">
-            <p class="description title-font">
-                <span style="display:none" id="description">Hm, looks like we couldn't find anything.</span>
-            </p>
-        </div>
+    <div id="wrapper">
+        <!--<div class="card animated bounceInRight" id="card0">
+            <div class="img-container">
+                <img id="element-image" class="item-img">
+            </div>
+            <div class="text-container">
+                <p class="description title-font">
+                    <span style="display:none" id="description">Hm, looks like we couldn't find anything.</span>
+                </p>
+            </div>
 
-        <div class="link-container title-font">
-            <a id="learn" class="card-link" target="_blank">Learn More + Donate</a>
-        </div>
-
-        <!--<div class="share-container">
-            <div class="share-wrapper">
-                <button class="social facebook-btn title-font">
-                    <!--<img src="images/facebook.png" class="icon">-->
-        <!--SHARE
-                </button>
-                <button class="social twitter-btn title-font">
-                    <!--<img src="images/twitter.png" class="icon">-->
-        <!--TWEET
-                </button>
+            <div class="link-container title-font">
+                <a id="learn" class="card-link" target="_blank">Learn More + Donate</a>
             </div>
         </div>-->
     </div>

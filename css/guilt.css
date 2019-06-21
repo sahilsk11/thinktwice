@@ -32,8 +32,15 @@ a {
 	display: block;
 	margin: 0px auto;
 	border-radius: 7px;
-	position: relative;
+	position: absolute;
     max-width: 90%;
+    left: 50%;
+    margin-left: -200px;
+    animation-duration: 0.3s;
+}
+
+#wrapper {
+    height: 500px;
 }
 
 .guilt-footer {
