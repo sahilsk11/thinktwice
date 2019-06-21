@@ -1,4 +1,4 @@
-# guilt.rip
+# thinktwice.me
 
 The idea was simple: show people how much they don't need stuff.
 
