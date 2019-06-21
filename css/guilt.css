@@ -34,13 +34,15 @@ a {
 	border-radius: 7px;
 	position: absolute;
     max-width: 90%;
-    left: 50%;
-    margin-left: -200px;
+    left: 0;
+    right: 0;
+    margin: auto;
     animation-duration: 0.3s;
 }
 
 #wrapper {
     height: 500px;
+    position: relative;
 }
 
 .guilt-footer {
