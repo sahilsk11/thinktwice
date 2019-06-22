@@ -1,4 +1,32 @@
-.text {
+.title {
+    text-align: center;
     font-family: 'Ubuntu', sans-serif;
-    font-size: 20px;
+    font-weight: 700;
+    padding-top: 5%;
+    display: block;
+    margin: 0px auto;
+}
+
+.container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.description {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#input-bar {
+    width: 500px;
+    display: block;
+    margin: 0px auto;
+    border-radius: 3px;
+    border: 2px solid black;
+    height: 27px;
+    font-size: 17px;
+    outline: none;
+    padding: 4px;
+    margin: 0px auto;
+    font-family: 'Ubuntu', sans-serif;
 }

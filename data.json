@@ -54,20 +54,6 @@ var data = {
         "cost": 38000,
         "donate": false
     },
-    "disneyTickets": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/disney.jpg",
-        "string": "buy VAR WORD to Disneyland",
-        "singularWord": "ticket",
-        "pluralWord": "tickets",
-        "percentString": "buy VAR of a ticket to Disneyland",
-        "sourceName": "Disney",
-        "sourceUrl": "https://disneyland.disney.go.com/tickets/",
-        "threshold": 1,
-        "cost": 150,
-        "donate": false
-    },
     "girlsToSchool": {
         "value": 0,
         "type": "donation",
@@ -148,20 +134,6 @@ var data = {
         "cost": 1,
         "donate": false
     },
-    "batman": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/batman.jpg",
-        "string": "buy VAR Lego Batman WORD (with utility belt)",
-        "singularWord": "minifigure",
-        "pluralWord": "minifigures",
-        "percentString": "buy VAR of a Lego Batman minifigure (with utility belt)",
-        "sourceName": "Amazon",
-        "sourceUrl": "https://www.amazon.com/LEGO-Batman-Movie-MiniFigure-Utility/dp/B01N45DEQR/",
-        "threshold": 0.01,
-        "cost": 8.95,
-        "donate": false
-    },
     "hat": {
         "value": 0,
         "type": "funny",
@@ -176,34 +148,6 @@ var data = {
         "cost": 1420,
         "donate": false
     },
-    "beeMovie": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/bee.jpg",
-        "string": "buy VAR WORD of the Bee Movie DVD",
-        "singularWord": "copy",
-        "pluralWord": "copies",
-        "percentString": "afford VAR of the Bee Movie DVD",
-        "sourceName": "Best Buy",
-        "sourceUrl": "https://www.bestbuy.com/site/bee-movie-dvd/34003377.p",
-        "threshold": 0.01,
-        "cost": 8,
-        "donate": false
-    },
-    "johnWick": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/wick.jpg",
-        "string": "buy VAR John Wick WORD in Fortnite",
-        "singularWord": "skin",
-        "pluralWord": "skins",
-        "percentString": "afford VAR of the John Wick skin in Fortnite",
-        "sourceName": "Dexerto",
-        "sourceUrl": "https://www.dexerto.com/fortnite/new-john-wick-cosmetic-pack-and-wicks-bounty-ltm-revealed-for-fortnite-season-9-631136",
-        "threshold": 0.01,
-        "cost": 20,
-        "donate": false
-    },
     "bieber": {
         "value": 0,
         "type": "funny",
@@ -215,59 +159,6 @@ var data = {
         "sourceUrl": "https://music.apple.com/us/album/believe/1440804754",
         "threshold": 1,
         "cost": 10,
-        "donate": false
-    },
-    "zuca": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/zuca.jpg",
-        "string": "buy VAR WORD with flashing wheels",
-        "singularWord": "Züca",
-        "pluralWord": "Zücas",
-        "sourceName": "Züca",
-        "percentString": "afford VAR of a Züca with flashing wheels",
-        "sourceUrl": "https://www.zuca.com/control/buildyourown/~product_id=13384",
-        "threshold": 0.01,
-        "cost": 162,
-        "donate": false
-    },
-    "spinner": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/spinner.jpg",
-        "string": "buy VAR light up fidget WORD (prime shipping)",
-        "singularWord": "spinner",
-        "pluralWord": "spinners",
-        "sourceName": "Amazon",
-        "sourceUrl": "https://www.amazon.com/FIGROL-Fidget-Spinner-Rainbow-Crystal/dp/B06Y28RZQS/ref=sr_1_18",
-        "threshold": 1,
-        "cost": 8,
-        "donate": false
-    },
-    "sillyBandz": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/silly.jpg",
-        "string": "buy VAR 24-WORD of Silly Bandz (Rock Bandz Edition)",
-        "singularWord": "pack",
-        "pluralWord": "packs",
-        "sourceName": "Amazon",
-        "sourceUrl": "https://www.amazon.com/Silly-Bandz-Rock-24-Pack/dp/B0036UXHK6/ref=sr_1_9",
-        "threshold": 1,
-        "cost": 4.94,
-        "donate": false
-    },
-    "webkinz": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/webkinz.jpg",
-        "string": "buy VAR Webkinz Signature Yellow Labrador WORD",
-        "singularWord": "Retriever",
-        "pluralWord": "Retrievers",
-        "sourceName": "Amazon",
-        "sourceUrl": "https://www.amazon.com/Webkinz-Signature-Yellow-Labrador-Retriever/dp/B00CJN8I3C/ref=sr_1_11",
-        "threshold": 1,
-        "cost": 20,
         "donate": false
     },
     "magma": {
@@ -294,6 +185,118 @@ var data = {
         "sourceUrl": "https://www.help.tinder.com/hc/en-us/sections/115001014406-Premium-Features",
         "threshold": 1,
         "cost": 10,
+        "donate": false
+    }
+};
+
+var extras = {
+    "spinner": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/spinner.jpg",
+        "string": "buy VAR light up fidget WORD (prime shipping)",
+        "singularWord": "spinner",
+        "pluralWord": "spinners",
+        "sourceName": "Amazon",
+        "sourceUrl": "https://www.amazon.com/FIGROL-Fidget-Spinner-Rainbow-Crystal/dp/B06Y28RZQS/ref=sr_1_18",
+        "threshold": 1,
+        "cost": 8,
+        "donate": false
+    },
+    "sillyBandz": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/silly.jpg",
+        "string": "buy VAR 24-WORD of Silly Bandz (Rock Bandz Edition)",
+        "singularWord": "pack",
+        "pluralWord": "packs",
+        "sourceName": "Amazon",
+        "sourceUrl": "https://www.amazon.com/Silly-Bandz-Rock-24-Pack/dp/B0036UXHK6/ref=sr_1_9",
+        "threshold": 1,
+        "cost": 4.94,
+        "donate": false
+    },
+    "zuca": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/zuca.jpg",
+        "string": "buy VAR WORD with flashing wheels",
+        "singularWord": "Züca",
+        "pluralWord": "Zücas",
+        "sourceName": "Züca",
+        "percentString": "afford VAR of a Züca with flashing wheels",
+        "sourceUrl": "https://www.zuca.com/control/buildyourown/~product_id=13384",
+        "threshold": 0.01,
+        "cost": 162,
+        "donate": false
+    },
+    "beeMovie": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/bee.jpg",
+        "string": "buy VAR WORD of the Bee Movie DVD",
+        "singularWord": "copy",
+        "pluralWord": "copies",
+        "percentString": "afford VAR of the Bee Movie DVD",
+        "sourceName": "Best Buy",
+        "sourceUrl": "https://www.bestbuy.com/site/bee-movie-dvd/34003377.p",
+        "threshold": 0.01,
+        "cost": 8,
+        "donate": false
+    },
+    "disneyTickets": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/disney.jpg",
+        "string": "buy VAR WORD to Disneyland",
+        "singularWord": "ticket",
+        "pluralWord": "tickets",
+        "percentString": "buy VAR of a ticket to Disneyland",
+        "sourceName": "Disney",
+        "sourceUrl": "https://disneyland.disney.go.com/tickets/",
+        "threshold": 1,
+        "cost": 150,
+        "donate": false
+    },
+    "batman": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/batman.jpg",
+        "string": "buy VAR Lego Batman WORD (with utility belt)",
+        "singularWord": "minifigure",
+        "pluralWord": "minifigures",
+        "percentString": "buy VAR of a Lego Batman minifigure (with utility belt)",
+        "sourceName": "Amazon",
+        "sourceUrl": "https://www.amazon.com/LEGO-Batman-Movie-MiniFigure-Utility/dp/B01N45DEQR/",
+        "threshold": 0.01,
+        "cost": 8.95,
+        "donate": false
+    },
+    "johnWick": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/wick.jpg",
+        "string": "buy VAR John Wick WORD in Fortnite",
+        "singularWord": "skin",
+        "pluralWord": "skins",
+        "percentString": "afford VAR of the John Wick skin in Fortnite",
+        "sourceName": "Dexerto",
+        "sourceUrl": "https://www.dexerto.com/fortnite/new-john-wick-cosmetic-pack-and-wicks-bounty-ltm-revealed-for-fortnite-season-9-631136",
+        "threshold": 0.01,
+        "cost": 20,
+        "donate": false
+    },
+    "webkinz": {
+        "value": 0,
+        "type": "funny",
+        "src": "images/original/webkinz.jpg",
+        "string": "buy VAR Webkinz Signature Yellow Labrador WORD",
+        "singularWord": "Retriever",
+        "pluralWord": "Retrievers",
+        "sourceName": "Amazon",
+        "sourceUrl": "https://www.amazon.com/Webkinz-Signature-Yellow-Labrador-Retriever/dp/B00CJN8I3C/ref=sr_1_11",
+        "threshold": 1,
+        "cost": 20,
         "donate": false
     }
 }
