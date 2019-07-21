@@ -1,16 +1,16 @@
 var data = {
     "childrenFed": {
-        "value": 0, //don't worry about this, it is calculating
-        "src": "images/feed.jpg", //image source
-        "type": "donation", //add a label
-        "string": "feed VAR WORD in war-stricken environments for one day", //VAR is the number, word is the noun
-        "singularWord": "child", //singular form on noun
-        "pluralWord": "children", //plural form
-        "sourceName": "World Food Programme", //Source of data
-        "sourceUrl": "https://sharethemeal.org/en/index.html", //Source/Donation url
-        "threshold": 1, //the minimum accepted value to diplay. 0.01 would be 1%
-        "cost": 0.5, //cost of a singular item
-        "donate": true //display the donation link
+        "value": 0,
+        "src": "images/feed.jpg",
+        "type": "donation",
+        "string": "feed VAR WORD in war-stricken environments for one day",
+        "singularWord": "child",
+        "pluralWord": "children",
+        "sourceName": "World Food Programme",
+        "sourceUrl": "https://sharethemeal.org/en/index.html",
+        "threshold": 1,
+        "cost": 0.5,
+        "donate": true
     },
     "africanSchool": {
         "value": 0,
