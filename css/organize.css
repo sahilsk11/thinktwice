@@ -151,10 +151,18 @@
 
 .hidden-link {
     text-decoration: none;
+    color: #000;
 }
 
 .hidden-link:visited {
     color: black;
+}
+
+.ph {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    float: right;
 }
 
 @media only screen and (max-width: 800px) {
@@ -185,5 +193,13 @@
     .footer {
         margin-left: 15px;
         font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 508px) {
+    .ph {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%);
     }
 }
