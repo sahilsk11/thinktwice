@@ -148,32 +148,6 @@ var data = {
         "cost": 1420,
         "donate": false
     },
-    "bieber": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/bieber.jpg",
-        "string": "buy VAR WORD of Justin Bieber's \"Believe\" album",
-        "singularWord": "copy",
-        "pluralWord": "copies",
-        "sourceName": "iTunes",
-        "sourceUrl": "https://music.apple.com/us/album/believe/1440804754",
-        "threshold": 1,
-        "cost": 10,
-        "donate": false
-    },
-    "magma": {
-        "value": 0,
-        "type": "funny",
-        "src": "images/original/magma.jpg",
-        "string": "buy VAR MAGA WORD to support our country",
-        "singularWord": "hat",
-        "pluralWord": "hats",
-        "sourceName": "Donald J. Trump Shop",
-        "sourceUrl": "https://shop.donaldjtrump.com/products/official-donald-trump-make-america-great-again-cap-red",
-        "threshold": 1,
-        "cost": 25,
-        "donate": false
-    },
     "tinder": {
         "value": 0,
         "type": "funny",
