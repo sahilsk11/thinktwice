@@ -12,5 +12,23 @@ In today's world however, money has the power to do incredible good. And our goa
 
 We love help! It would be awesome to add more content to the website.
 
+Add elements to data.json with the format:
+```
+var data = {
+    "childrenFed": {
+        "value": 0, //don't worry about this, it is calculating
+        "src": "images/feed.jpg", //image source
+        "type": "donation", //add a label
+        "string": "feed VAR WORD in war-stricken environments for one day", //VAR is the number, word is the noun
+        "singularWord": "child", //singular form on noun
+        "pluralWord": "children", //plural form
+        "sourceName": "World Food Programme", //Source of data
+        "sourceUrl": "https://sharethemeal.org/en/index.html", //Source/Donation url
+        "threshold": 1, //the minimum accepted value to diplay. 0.01 would be 1%
+        "cost": 0.5, //cost of a singular item
+        "donate": true //display the donation link
+    }
+ ```
+
 Check out this link to get started:
 http://contribute.thinktwice.me
