@@ -44,14 +44,14 @@ var data = {
         "value": 0,
         "type": "funny",
         "src": "images/model3.jpg",
-        "string": "buy VAR Tesla WORD",
+        "string": "buy VAR base-level Tesla WORD",
         "singularWord": "Model 3",
         "pluralWord": "Model 3's",
-        "percentString": "buy VAR of a Tesla Model 3",
+        "percentString": "buy VAR of a base-level Tesla Model 3",
         "sourceName": "Tesla",
         "sourceUrl": "http://www.tesla.com/model3",
         "threshold": 0.01,
-        "cost": 38000,
+        "cost": 39990,
         "donate": false
     },
     "girlsToSchool": {
